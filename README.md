@@ -1,5 +1,7 @@
 # Rumo
 
+![travisCI](https://secure.travis-ci.org/lazypic/rumo.svg)
+
 Rumo is node toolset for WASM(Web Assembley).
 
 ### Goal
