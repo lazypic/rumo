@@ -64,13 +64,18 @@ const (
 // It should not be used to hold multiple attributes. ex) "P" and "N"
 type Attributes struct {
 	Type AttributeType
-	N    uint // n elements per a unit, when 0 use 'Types' instead of 'Type'
-	Str  []string
-	Strs [][]string
-	Int  []int
-	Ints [][]int
-	Flt  []float64
-	Flts [][]float64
+	// N is number of elements per a unit.
+	// When it is non zero, len(Values) % N should be 0.
+	// When it is 0, number of elements are various per unit.
+	// See Ns then.
+	N  uint
+	Ns []uint
+
+	// Values.
+	// Only one of following will be used in a Attributes.
+	Str []string
+	Int []int
+	Flt []float64
 }
 
 // NewAttributes creates new Attributes.
